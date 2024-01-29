@@ -11,7 +11,9 @@
 			b.branch_name AS branchName,
 			
 			p.program_name AS programName,
-			c.customer_id AS customerId
+			c.customer_id AS customerId,
+			DATE_FORMAT(r.createdate,'20%y-%m-%d %T') AS createdate,
+			DATE_FORMAT(r.updatedate,'20%y-%m-%d %T') AS updatedate
 			
 		FROM review r
 		INNER JOIN customer_attendance ca
@@ -86,8 +88,8 @@
 			r.review_no AS reviewNo,
 			r.review_title AS reviewTitle,
 			r.review_content AS reviewContent,		<!-- 리뷰내용 -->
-			r.createdate AS createdate,
-			r.updatedate AS updatedate,							
+			DATE_FORMAT(r.createdate,'20%y-%m-%d %T') AS createdate,
+			DATE_FORMAT(r.updatedate,'20%y-%m-%d %T') AS updatedate,							
 			pr.program_reservation_no AS programReservationNo,
 			ca.customer_attendance_enter_time AS customerAttendanceEnterTime,			<!-- 방문시시간 -->
 			pro.program_name AS programName,
@@ -124,7 +126,8 @@
 			r.review_no AS reviewNo,
 			r.employee_no AS employeeNo,
 			r.review_reply_content AS reviewReplyContent,
-			r.createdate, r.updatedate,
+			DATE_FORMAT(r.createdate,'20%y-%m-%d %T') AS createdate,
+			DATE_FORMAT(r.updatedate,'20%y-%m-%d %T') AS updatedate,
 			
 			e.employee_id AS employeeId,
 			e.branch_no AS branchNo,

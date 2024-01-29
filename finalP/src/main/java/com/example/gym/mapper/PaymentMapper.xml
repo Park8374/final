@@ -22,7 +22,7 @@
 							resultType="java.util.Map"><!-- 전 고객 결제정보 및 특정고객 결제정보 -->
 		SELECT
 			p.payment_no AS paymentNo,
-			p.payment_date AS paymentDate,
+			DATE_FORMAT(p.payment_date,'20%y-%m-%d %T') AS paymentDate,
 			
 			c.customer_id AS customerId,
 			

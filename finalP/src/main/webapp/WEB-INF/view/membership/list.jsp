@@ -109,10 +109,11 @@
 		},
 	},
 </c:set>
-<c:if test="${ loginEmployee != null }">
-<%@ include file="/inc/admin_layout.jsp" %>
+
+<c:if test="${ loginEmployee == null}">
+	<%@ include file="/inc/user_layout.jsp"%>
 </c:if>
 
-<c:if test="${ loginEmployee == null }">
-<%@ include file="/inc/user_layout.jsp" %>
+<c:if test="${ loginEmployee != null}">
+	<%@ include file="/inc/admin_layout.jsp"%>
 </c:if>

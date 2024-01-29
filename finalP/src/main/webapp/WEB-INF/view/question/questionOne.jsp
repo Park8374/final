@@ -37,7 +37,7 @@
 
 	<strong>Content</strong>
 	<br>
-	<textarea readonly rows="20" cols="200" style="resize: none;">{{ questionContent }}</textarea>
+	<textarea readonly rows="20" cols="200" style="resize: none; border: 20em;">{{ questionContent }}</textarea>
 	
 	<c:if test="${ replyMap != null }">
 		<!-- 답변 -->
@@ -62,7 +62,7 @@
 	<br>
 
 		<strong>Reply</strong>
-		<textarea id="questionReply" rows="20" cols="170"
+		<textarea id="questionReply" rows="20" cols="170" 
 			style="resize: none;" readonly>{{ replyContent }}</textarea>
 	</c:if>
 	<br>
@@ -107,9 +107,9 @@
 		// question 관련 데이터
 			question: {
 				문의번호: '${ questionMap.questionNo }',
+				제목: '${ questionMap.questionTitle }',
 				작성자: '${ questionMap.customerId }',
-				작성일: '${ questionMap.updatedate }',
-				제목: '${ questionMap.questionTitle }', 				
+				최종수정일: '${ questionMap.updatedate }',			
 			},
 			questionContent: '${ questionMap.questionContent }',
 			
@@ -216,5 +216,10 @@
 </c:set>
 
 
+<c:if test="${ loginEmployee == null}">
+	<%@ include file="/inc/user_layout.jsp"%>
+</c:if>
 
-<%@ include file="/inc/user_layout.jsp"%>
+<c:if test="${ loginEmployee != null}">
+	<%@ include file="/inc/admin_layout.jsp"%>
+</c:if>

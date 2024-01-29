@@ -9,7 +9,7 @@
 		   c.customer_no AS customerNo,
 		   c.customer_id AS customerId,
 		   c.customer_active AS customerActive,
-		   c.createdate, c.updatedate,
+		   DATE_FORMAT(c.createdate,'20%y-%m-%d %T') c.updatedate,
 		   n.paymentNo,
 		   n.payment_active AS paymentActive,
 		   case when n.membershipName IS not NULL 
@@ -129,9 +129,7 @@
 			c.customer_no AS customerNo,
 			c.customer_id AS customerId,
 			c.customer_active AS customerActive,
-			
-			c.createdate AS cCreatedate, 
-			c.updatedate AS cUpdatedate,
+			DATE_FORMAT(c.createdate,'20%y-%m-%d %T') AS cCreatedate,
 			
 			cd.customer_name AS customerName,
 			cd.customer_gender AS customerGender,
@@ -139,10 +137,7 @@
 			cd.customer_weight AS customerWeight,
 			cd.customer_phone AS customerPhone,
 			cd.customer_address AS customerAddress,
-			cd.customer_email AS customerEmail,
-			
-			cd.createdate AS cdCreatedate, 
-			cd.updatedate AS cdUpdatedate, 
+			cd.customer_email AS customerEmail,			
 			
 			ci.customer_img_no AS customerImgNo,
 			ci.customer_img_origin_name AS customerImgOriginName,
@@ -208,8 +203,8 @@
 			c.customer_id AS customerId,
 			c.customer_active AS customerActive,
 			
-			c.createdate AS createdate, 
-			c.updatedate AS updatedate,
+			DATE_FORMAT(c.createdate, '20%y-%m-%d %T') AS createdate, 
+			DATE_FORMAT(c.updatedate, '20%y-%m-%d %T') AS updatedate,
 			
 			cd.customer_name AS customerName,
 			cd.customer_gender AS customerGender,
